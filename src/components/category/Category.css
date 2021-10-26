@@ -1,0 +1,15 @@
+.column {
+  @apply bg-gray-300 h-3/4;
+}
+
+.columnTitle {
+  @apply flex justify-center text-3xl font-bold pb-1.5;
+}
+
+.createCardBtn {
+  @apply flex justify-center;
+}
+
+.createCardBtn > button {
+  @apply bg-black text-white w-20 ml-5 rounded-3xl;
+}
