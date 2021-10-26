@@ -1,5 +1,11 @@
+import Announcement from "./Announcement";
+
 const Category = () => {
-  return <div></div>;
+  return (
+    <div>
+      <Announcement />
+    </div>
+  );
 };
 
 export default Category;
