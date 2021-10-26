@@ -3,7 +3,7 @@
 }
 
 .columnTitle {
-  @apply flex justify-center text-3xl font-bold pb-1.5;
+  @apply flex justify-center text-xl font-bold pb-1.5;
 }
 
 .createCardBtn {
@@ -11,5 +11,5 @@
 }
 
 .createCardBtn > button {
-  @apply bg-black text-white w-20 ml-5 rounded-3xl;
+  @apply bg-black text-white  ml-5 rounded-lg px-2 py-2;
 }

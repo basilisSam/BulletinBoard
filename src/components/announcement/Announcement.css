@@ -1,0 +1,7 @@
+.ann_boiler {
+  @apply bg-gray-50 m-7 px-2 py-1;
+}
+
+.title {
+  @apply font-bold text-red-400;
+}

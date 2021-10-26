@@ -7,7 +7,7 @@ const Category = ({ title }) => {
       <Announcement />
 
       <div className='createCardBtn'>
-        <button>click here</button>
+        <button>Add Announcement</button>
       </div>
     </div>
   );
