@@ -1,9 +1,9 @@
 import Announcement from "../announcement/Announcement";
 import "./Category.css";
-const Category = () => {
+const Category = ({ title }) => {
   return (
     <div className='column'>
-      <span className='columnTitle'> Random text</span>
+      <span className='columnTitle'> {title}</span>
       <Announcement />
 
       <div className='createCardBtn'>

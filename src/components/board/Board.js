@@ -1,9 +1,11 @@
 import Category from "../category/Category";
 import "./Board.css";
-const Board = () => {
+const Board = ({ categories }) => {
   return (
     <div className='boardWrapper'>
-      <Category />
+      {categories.map((categorie) => (
+        <Category key={categorie.id} title={categorie.title} />
+      ))}
     </div>
   );
 };
