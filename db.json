@@ -1,20 +1,36 @@
 {
-  "todos": [
+  "Category": [
     {
-      "title": "Alex",
-      "id": 9
+      "id": 0,
+      "title": "First Semester"
     },
     {
-      "title": "SAlex",
-      "id": 10
+      "id": 1,
+      "title": "Second Semester"
     },
     {
-      "title": "adas",
-      "id": 12
+      "id": 2,
+      "title": "Third Semester"
+    }
+  ],
+  "Announcements": [
+    {
+      "id": 0,
+      "title": "Welcome to our university",
+      "text": "this is sample text yolo",
+      "categoryId": 0
     },
     {
-      "title": "Test",
-      "id": 13
+      "id": 1,
+      "title": "Welcome to our university2",
+      "text": "this is sample text yolo2",
+      "categoryId": 1
+    },
+    {
+      "id": 2,
+      "title": "Welcome to our university3",
+      "text": "this is sample text yolo3",
+      "categoryId": 2
     }
   ]
 }
