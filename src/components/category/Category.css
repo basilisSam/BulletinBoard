@@ -11,5 +11,5 @@
 }
 
 .createCardBtn > button {
-  @apply bg-black text-white  ml-5 rounded-lg px-2 py-2;
+  @apply bg-green-500 text-white  ml-5 rounded-lg px-2 py-2;
 }

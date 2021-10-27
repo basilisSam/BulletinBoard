@@ -31,6 +31,12 @@
       "title": "Welcome to our university3",
       "text": "this is sample text yolo3",
       "categoryId": 2
+    },
+    {
+      "id": 3,
+      "title": "Welcome to our university3",
+      "text": "TestSssS",
+      "categoryId": 1
     }
   ]
 }
