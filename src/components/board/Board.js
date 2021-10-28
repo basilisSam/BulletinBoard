@@ -1,11 +1,9 @@
-import Category from "../category/Category";
+import Column from "../column/Column";
 import "./Board.css";
-const Board = ({ categories }) => {
+const Board = ({ categories, announcements }) => {
   return (
     <div className='boardWrapper'>
-      {categories.map((categorie) => (
-        <Category key={categorie.id} title={categorie.title} />
-      ))}
+      <Column categories={categories} announcements={announcements} />
     </div>
   );
 };

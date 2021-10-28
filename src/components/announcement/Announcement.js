@@ -1,13 +1,10 @@
 import "./Announcement.css";
 
-const Announcement = () => {
+const Announcement = ({ title, text }) => {
   return (
     <div className='ann_boiler'>
-      <span className='title'>Welcome</span>
-      <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-        corporis
-      </div>
+      <span className='title'>{title}</span>
+      <div>{text}</div>
     </div>
   );
 };

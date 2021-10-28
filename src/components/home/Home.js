@@ -1,22 +1,16 @@
 import { useEffect, useState } from "react";
-import Announcement from "../announcement/Announcement";
 import Board from "../board/Board";
+import NavBar from "../navBar.js/NavBar";
 import "./Home.css";
 const Home = () => {
   const [categories, setCategories] = useState([]);
-  const [ansemester1, setAnsemester1] = useState([]);
-  const [ansemester2, setAnsemester2] = useState([]);
-  const [ansemester3, setAnsemester3] = useState([]);
+  const [announcements, setAnnouncements] = useState([]);
 
-  // const [announcement, setAnnouncement] = useState([]);
-
-  const Url = "http://localhost:8000/Categories";
-  const Urlan1 = "http://localhost:8000/Announcements?categoryId=0";
-  const Urlan2 = "http://localhost:8000/Announcements?categoryId=1";
-  const Urlan3 = "http://localhost:8000/Announcements?categoryId=2";
+  const UrlCategories = "http://localhost:8000/Categories";
+  const UrlAnnouncements = "http://localhost:8000/Announcements";
 
   useEffect(() => {
-    fetch(Url)
+    fetch(UrlCategories)
       .then((categories) => {
         if (categories.ok) {
           return categories.json();
@@ -32,7 +26,7 @@ const Home = () => {
         console.log(e);
       });
 
-    fetch(Urlan1)
+    fetch(UrlAnnouncements)
       .then((announcements) => {
         if (announcements.ok) {
           return announcements.json();
@@ -41,52 +35,20 @@ const Home = () => {
         throw announcements;
       })
       .then((announcements) => {
-        console.log(announcements, "semester1");
-        setAnsemester1(announcements);
+        setAnnouncements(announcements);
       })
       .catch((e) => {
-        console.log("fetching columns failed :( ");
-        console.log(e);
-      });
-
-    fetch(Urlan2)
-      .then((announcements) => {
-        if (announcements.ok) {
-          return announcements.json();
-        }
-
-        throw announcements;
-      })
-      .then((announcements) => {
-        console.log(announcements, "semester2");
-        setAnsemester2(announcements);
-      })
-      .catch((e) => {
-        console.log("fetching columns failed :( ");
-        console.log(e);
-      });
-
-    fetch(Urlan3)
-      .then((announcements) => {
-        if (announcements.ok) {
-          return announcements.json();
-        }
-
-        throw announcements;
-      })
-      .then((announcements) => {
-        console.log(announcements, "semester3");
-        setAnsemester3(announcements);
-      })
-      .catch((e) => {
-        console.log("fetching columns failed :( ");
+        console.log("fetching announcements failed :( ");
         console.log(e);
       });
   }, []);
 
   return (
     <div className='homeWrapper'>
-      <Board categories={categories} />
+      <Board categories={categories} announcements={announcements} />
+      {categories.map((category) => (
+        <NavBar title={category.title} key={category.id} />
+      ))}
     </div>
   );
 };
