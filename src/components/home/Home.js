@@ -54,7 +54,7 @@ const Home = () => {
         throw announcements;
       })
       .then((announcements) => {
-        console.log(announcements);
+        setAnnouncements(announcements);
       })
       .catch((e) => {
         console.log("fetching announcements failed :( ");
