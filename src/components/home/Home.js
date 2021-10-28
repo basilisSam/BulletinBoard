@@ -43,9 +43,28 @@ const Home = () => {
       });
   }, []);
 
+  const fetchingCategory = (id) => {
+    console.log("hello bill");
+    fetch(`${URL_ANNOUNCEMENTS}?categoryId=${id}`)
+      .then((announcements) => {
+        if (announcements.ok) {
+          return announcements.json();
+        }
+
+        throw announcements;
+      })
+      .then((announcements) => {
+        console.log(announcements);
+      })
+      .catch((e) => {
+        console.log("fetching announcements failed :( ");
+        console.log(e);
+      });
+  };
+
   return (
     <div className='homeWrapper'>
-      <NavBar categories={categories} />
+      <NavBar fetchingCategory={fetchingCategory} categories={categories} />
       <Board categories={categories} announcements={announcements} />
     </div>
   );

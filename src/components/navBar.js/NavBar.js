@@ -1,10 +1,12 @@
 import "./NavBar.css";
 
-const NavBar = ({ categories }) => {
+const NavBar = ({ categories, fetchingCategory }) => {
   return (
     <div className='navBarWrapper'>
       {categories.map((category) => (
-        <button>{category.title}</button>
+        <button key={category.id} onClick={() => fetchingCategory(category.id)}>
+          {category.title}
+        </button>
       ))}
     </div>
   );
