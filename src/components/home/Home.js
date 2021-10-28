@@ -6,11 +6,11 @@ const Home = () => {
   const [categories, setCategories] = useState([]);
   const [announcements, setAnnouncements] = useState([]);
 
-  const UrlCategories = "http://localhost:8000/Categories";
-  const UrlAnnouncements = "http://localhost:8000/Announcements";
+  const URL_CATEGORIES = "http://localhost:8000/Categories";
+  const URL_ANNOUNCEMENTS = "http://localhost:8000/Announcements";
 
   useEffect(() => {
-    fetch(UrlCategories)
+    fetch(URL_CATEGORIES)
       .then((categories) => {
         if (categories.ok) {
           return categories.json();
@@ -22,11 +22,11 @@ const Home = () => {
         setCategories(categories);
       })
       .catch((e) => {
-        console.log("fetching columns failed :( ");
+        console.log("fetching categories failed :( ");
         console.log(e);
       });
 
-    fetch(UrlAnnouncements)
+    fetch(URL_ANNOUNCEMENTS)
       .then((announcements) => {
         if (announcements.ok) {
           return announcements.json();
