@@ -1,9 +1,9 @@
 import Announcement from "../announcement/Announcement";
 import "./Column.css";
-const Column = ({ categories, announcements }) => {
+const Column = ({ categories, announcements, selectedCategory }) => {
   return (
     <div className='column'>
-      <span className='columnTitle'> {categories.title}</span>
+      <span className='columnTitle'> {selectedCategory?.title}</span>
       {announcements.map((announcement) => (
         <Announcement
           key={announcement.id}

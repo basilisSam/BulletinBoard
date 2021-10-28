@@ -5,6 +5,7 @@ import "./Home.css";
 const Home = () => {
   const [categories, setCategories] = useState([]);
   const [announcements, setAnnouncements] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState({});
 
   const URL_CATEGORIES = "http://localhost:8000/Categories";
   const URL_ANNOUNCEMENTS = "http://localhost:8000/Announcements";
@@ -43,9 +44,9 @@ const Home = () => {
       });
   }, []);
 
-  const fetchingCategory = (id) => {
+  const fetchingCategory = (category) => {
     console.log("hello bill");
-    fetch(`${URL_ANNOUNCEMENTS}?categoryId=${id}`)
+    fetch(`${URL_ANNOUNCEMENTS}?categoryId=${category.id}`)
       .then((announcements) => {
         if (announcements.ok) {
           return announcements.json();
@@ -55,6 +56,8 @@ const Home = () => {
       })
       .then((announcements) => {
         setAnnouncements(announcements);
+        setSelectedCategory(category);
+        console.log(category);
       })
       .catch((e) => {
         console.log("fetching announcements failed :( ");
@@ -65,7 +68,11 @@ const Home = () => {
   return (
     <div className='homeWrapper'>
       <NavBar fetchingCategory={fetchingCategory} categories={categories} />
-      <Board categories={categories} announcements={announcements} />
+      <Board
+        categories={categories}
+        announcements={announcements}
+        selectedCategory={selectedCategory}
+      />
     </div>
   );
 };
