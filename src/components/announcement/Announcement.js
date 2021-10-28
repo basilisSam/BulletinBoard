@@ -2,7 +2,7 @@ import "./Announcement.css";
 
 const Announcement = ({ title, text }) => {
   return (
-    <div className='ann_boiler'>
+    <div className='announcementWrapper'>
       <span className='title'>{title}</span>
       <div>{text}</div>
     </div>

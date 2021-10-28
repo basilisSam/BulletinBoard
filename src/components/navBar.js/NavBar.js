@@ -1,9 +1,11 @@
 import "./NavBar.css";
 
-const NavBar = ({ title }) => {
+const NavBar = ({ categories }) => {
   return (
     <div className='navBarWrapper'>
-      <button>{title}</button>
+      {categories.map((category) => (
+        <button>{category.title}</button>
+      ))}
     </div>
   );
 };

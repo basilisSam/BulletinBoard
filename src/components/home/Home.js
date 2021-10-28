@@ -45,10 +45,8 @@ const Home = () => {
 
   return (
     <div className='homeWrapper'>
+      <NavBar categories={categories} />
       <Board categories={categories} announcements={announcements} />
-      {categories.map((category) => (
-        <NavBar title={category.title} key={category.id} />
-      ))}
     </div>
   );
 };
