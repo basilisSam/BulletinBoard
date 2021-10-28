@@ -69,7 +69,6 @@ const Home = () => {
     <div className='homeWrapper'>
       <NavBar fetchingCategory={fetchingCategory} categories={categories} />
       <Board
-        categories={categories}
         announcements={announcements}
         selectedCategory={selectedCategory}
       />
