@@ -9,6 +9,7 @@ const Board = ({
   selectedCategory,
   createNewAnnouncement,
   captureTitle,
+  captureText,
 }) => {
   return (
     <div className="boardWrapper">
@@ -30,6 +31,7 @@ const Board = ({
           isFormVisible={isFormVisible}
           createNewAnnouncement={createNewAnnouncement}
           captureTitle={captureTitle}
+          captureText={captureText}
         />
       )}
     </div>

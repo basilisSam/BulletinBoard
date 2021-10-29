@@ -2,6 +2,7 @@ const CreateAnnouncementForm = ({
   createNewAnnouncement,
   isFormVisible,
   captureTitle,
+  captureText,
 }) => {
   return (
     <div>
@@ -16,7 +17,10 @@ const CreateAnnouncementForm = ({
         </label>
         <label>
           Description
-          <textarea placeholder="Write an Announcement" />
+          <textarea
+            onChange={(e) => captureText(e)}
+            placeholder="Write an Announcement"
+          />
         </label>
         <select>
           <option value="grapefruit">Grapefruit</option>

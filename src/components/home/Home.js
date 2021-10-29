@@ -8,6 +8,7 @@ const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState({});
   const [isAdding, setIsAdding] = useState(false);
   const [title, setTitle] = useState("");
+  const [text, setText] = useState("");
 
   const URL_CATEGORIES = "http://localhost:8000/Categories";
   const URL_ANNOUNCEMENTS = "http://localhost:8000/Announcements";
@@ -72,13 +73,17 @@ const Home = () => {
     e.preventDefault();
     fetch(URL_ANNOUNCEMENTS, {
       method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({title:title}),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title: title, text: text }),
     }).then((r) => console.log(r));
   };
 
   const captureTitle = (e) => {
     setTitle(e.target.value);
+  };
+
+  const captureText = (e) => {
+    setText(e.target.value);
   };
 
   return (
@@ -95,6 +100,7 @@ const Home = () => {
         isFormVisible={isFormVisible}
         createNewAnnouncement={createNewAnnouncement}
         captureTitle={captureTitle}
+        captureText={captureText}
       />
     </div>
   );
