@@ -39,13 +39,10 @@
       "categoryId": 1
     },
     {
-      "title": "HELLO BITCH",
+      "title": "hellooo",
+      "text": "booom",
+      "categoryId": "1",
       "id": 4
-    },
-    {
-      "title": "title 1",
-      "text": "text 1",
-      "id": 5
     }
   ]
 }

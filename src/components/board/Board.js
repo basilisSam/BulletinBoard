@@ -10,6 +10,8 @@ const Board = ({
   createNewAnnouncement,
   captureTitle,
   captureText,
+  captureCategory,
+  categories,
 }) => {
   return (
     <div className="boardWrapper">
@@ -32,6 +34,8 @@ const Board = ({
           createNewAnnouncement={createNewAnnouncement}
           captureTitle={captureTitle}
           captureText={captureText}
+          captureCategory={captureCategory}
+          categories={categories}
         />
       )}
     </div>
