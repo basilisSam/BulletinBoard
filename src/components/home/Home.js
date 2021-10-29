@@ -46,19 +46,16 @@ const Home = () => {
   }, []);
 
   const fetchingCategory = (category) => {
-    console.log("hello bill");
     fetch(`${URL_ANNOUNCEMENTS}?categoryId=${category.id}`)
       .then((announcements) => {
         if (announcements.ok) {
           return announcements.json();
         }
-
         throw announcements;
       })
       .then((announcements) => {
         setAnnouncements(announcements);
         setSelectedCategory(category);
-        console.log(category);
       })
       .catch((e) => {
         console.log("fetching announcements failed :( ");
@@ -66,13 +63,17 @@ const Home = () => {
       });
   };
 
-  const isFormVisible = () => {
-    setIsAdding(!isAdding);
+  const isFormVisible = (isVisible) => {
+    setIsAdding(isVisible);
   };
 
   return (
     <div className='homeWrapper'>
-      <NavBar fetchingCategory={fetchingCategory} categories={categories} />
+      <NavBar
+        isFormVisible={isFormVisible}
+        fetchingCategory={fetchingCategory}
+        categories={categories}
+      />
       <Board
         announcements={announcements}
         selectedCategory={selectedCategory}
