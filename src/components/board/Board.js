@@ -1,14 +1,16 @@
 import Column from "../column/Column";
 import CreateAnnouncementForm from "../createAnnouncementForm/CreateAnnouncementForm";
 import "./Board.css";
+
 const Board = ({
   isFormVisible,
   isAdding,
   announcements,
   selectedCategory,
+  createNewAnnouncement,
 }) => {
   return (
-    <div className='boardWrapper'>
+    <div className="boardWrapper">
       {!isAdding ? (
         <>
           <Column
@@ -16,14 +18,17 @@ const Board = ({
             selectedCategory={selectedCategory}
           />
 
-          <div className='createCardBtn'>
+          <div className="createCardBtn">
             <button onClick={() => isFormVisible(true)}>
               Add Announcement
             </button>
           </div>
         </>
       ) : (
-        <CreateAnnouncementForm isFormVisible={isFormVisible} />
+        <CreateAnnouncementForm
+          isFormVisible={isFormVisible}
+          createNewAnnouncement={createNewAnnouncement}
+        />
       )}
     </div>
   );

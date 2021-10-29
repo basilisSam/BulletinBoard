@@ -2,7 +2,7 @@ import "./NavBar.css";
 
 const NavBar = ({ isFormVisible, categories, fetchingCategory }) => {
   return (
-    <div className='navBarWrapper'>
+    <div className="navBarWrapper">
       {categories.map((category) => (
         <button
           key={category.id}

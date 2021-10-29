@@ -70,12 +70,8 @@ const Home = () => {
 
   const createNewAnnouncement = () => {};
 
-  const handleChangeOnTitle = () => {};
-
-  const handleChangeOnText = () => {};
-
   return (
-    <div className='homeWrapper'>
+    <div className="homeWrapper">
       <NavBar
         isFormVisible={isFormVisible}
         fetchingCategory={fetchingCategory}
