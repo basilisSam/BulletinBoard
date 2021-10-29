@@ -7,6 +7,7 @@ const Home = () => {
   const [announcements, setAnnouncements] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState({});
   const [isAdding, setIsAdding] = useState(false);
+  const [newAnnouncement, setNewAnnouncement] = useState({});
 
   const URL_CATEGORIES = "http://localhost:8000/Categories";
   const URL_ANNOUNCEMENTS = "http://localhost:8000/Announcements";
@@ -66,6 +67,12 @@ const Home = () => {
   const isFormVisible = (isVisible) => {
     setIsAdding(isVisible);
   };
+
+  const createNewAnnouncement = () => {};
+
+  const handleChangeOnTitle = () => {};
+
+  const handleChangeOnText = () => {};
 
   return (
     <div className='homeWrapper'>

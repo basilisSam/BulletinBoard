@@ -1,7 +1,7 @@
-const CreateAnnouncementForm = ({ isFormVisible }) => {
+const CreateAnnouncementForm = ({ createNewAnnouncement, isFormVisible }) => {
   return (
     <div>
-      <form>
+      <form onSubmit={() => createNewAnnouncement()}>
         <label>
           Title:
           <input type='text' name='name' placeholder='Add a Title' />
