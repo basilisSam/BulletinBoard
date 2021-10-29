@@ -6,10 +6,3 @@
   @apply flex justify-center text-xl font-bold pb-1.5;
 }
 
-.createCardBtn {
-  @apply flex justify-center;
-}
-
-.createCardBtn > button {
-  @apply bg-green-500 text-white  ml-5 rounded-lg px-2 py-2;
-}

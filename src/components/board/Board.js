@@ -7,6 +7,9 @@ const Board = ({ announcements, selectedCategory }) => {
         announcements={announcements}
         selectedCategory={selectedCategory}
       />
+      <div className='createCardBtn'>
+        <button>Add Announcement</button>
+      </div>
     </div>
   );
 };

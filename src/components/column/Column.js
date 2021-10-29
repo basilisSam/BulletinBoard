@@ -11,10 +11,6 @@ const Column = ({ announcements, selectedCategory }) => {
           text={announcement.text}
         />
       ))}
-
-      <div className='createCardBtn'>
-        <button>Add Announcement</button>
-      </div>
     </div>
   );
 };
