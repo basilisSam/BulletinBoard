@@ -23,7 +23,7 @@ const Board = ({
           </div>
         </>
       ) : (
-        <CreateAnnouncementForm />
+        <CreateAnnouncementForm isFormVisible={isFormVisible} />
       )}
     </div>
   );

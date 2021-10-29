@@ -13,9 +13,7 @@ const CreateAnnouncementForm = ({ isFormVisible }) => {
         <select>
           <option value='grapefruit'>Grapefruit</option>
           <option value='lime'>Lime</option>
-          <option selected value='coconut'>
-            Coconut
-          </option>
+          <option value='coconut'>Coconut</option>
           <option value='mango'>Mango</option>
         </select>
         <input type='submit' value='Create Announcement' />
