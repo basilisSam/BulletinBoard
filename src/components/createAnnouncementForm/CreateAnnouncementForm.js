@@ -1,4 +1,4 @@
-const InputForm = () => {
+const CreateAnnouncementForm = ({ isFormVisible }) => {
   return (
     <div>
       <form>
@@ -10,7 +10,6 @@ const InputForm = () => {
           Description
           <textarea placeholder='Write an Announcement' />
         </label>
-        <input type='submit' value='Create Announcement' />
         <select>
           <option value='grapefruit'>Grapefruit</option>
           <option value='lime'>Lime</option>
@@ -19,9 +18,11 @@ const InputForm = () => {
           </option>
           <option value='mango'>Mango</option>
         </select>
+        <input type='submit' value='Create Announcement' />
+        <button onClick={() => isFormVisible(false)}>Cancel</button>
       </form>
     </div>
   );
 };
 
-export default InputForm;
+export default CreateAnnouncementForm;

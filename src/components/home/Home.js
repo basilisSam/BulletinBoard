@@ -6,6 +6,7 @@ const Home = () => {
   const [categories, setCategories] = useState([]);
   const [announcements, setAnnouncements] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState({});
+  const [isAdding, setIsAdding] = useState(false);
 
   const URL_CATEGORIES = "http://localhost:8000/Categories";
   const URL_ANNOUNCEMENTS = "http://localhost:8000/Announcements";
@@ -65,12 +66,18 @@ const Home = () => {
       });
   };
 
+  const isFormVisible = () => {
+    setIsAdding(!isAdding);
+  };
+
   return (
     <div className='homeWrapper'>
       <NavBar fetchingCategory={fetchingCategory} categories={categories} />
       <Board
         announcements={announcements}
         selectedCategory={selectedCategory}
+        isAdding={isAdding}
+        isFormVisible={isFormVisible}
       />
     </div>
   );
