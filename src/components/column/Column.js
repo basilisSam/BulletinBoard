@@ -1,6 +1,6 @@
 import Announcement from "../announcement/Announcement";
 import "./Column.css";
-const Column = ({ categories, announcements, selectedCategory }) => {
+const Column = ({ announcements, selectedCategory }) => {
   return (
     <div className='column'>
       <span className='columnTitle'> {selectedCategory?.title}</span>
