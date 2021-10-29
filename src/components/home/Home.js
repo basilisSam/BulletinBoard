@@ -7,7 +7,7 @@ const Home = () => {
   const [announcements, setAnnouncements] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState({});
   const [isAdding, setIsAdding] = useState(false);
-  const [newAnnouncement, setNewAnnouncement] = useState({});
+  const [title, setTitle] = useState("");
 
   const URL_CATEGORIES = "http://localhost:8000/Categories";
   const URL_ANNOUNCEMENTS = "http://localhost:8000/Announcements";
@@ -68,7 +68,18 @@ const Home = () => {
     setIsAdding(isVisible);
   };
 
-  const createNewAnnouncement = () => {};
+  const createNewAnnouncement = (e) => {
+    e.preventDefault();
+    fetch(URL_ANNOUNCEMENTS, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({title:title}),
+    }).then((r) => console.log(r));
+  };
+
+  const captureTitle = (e) => {
+    setTitle(e.target.value);
+  };
 
   return (
     <div className="homeWrapper">
@@ -82,6 +93,8 @@ const Home = () => {
         selectedCategory={selectedCategory}
         isAdding={isAdding}
         isFormVisible={isFormVisible}
+        createNewAnnouncement={createNewAnnouncement}
+        captureTitle={captureTitle}
       />
     </div>
   );

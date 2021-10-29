@@ -1,10 +1,18 @@
-const CreateAnnouncementForm = ({ createNewAnnouncement, isFormVisible }) => {
+const CreateAnnouncementForm = ({
+  createNewAnnouncement,
+  isFormVisible,
+  captureTitle,
+}) => {
   return (
     <div>
-      <form onSubmit={() => createNewAnnouncement()}>
+      <form onSubmit={(e) => createNewAnnouncement(e)}>
         <label>
           Title:
-          <input type="text" name="name" placeholder="Add a Title" />
+          <input
+            onChange={(e) => captureTitle(e)}
+            type="text"
+            placeholder="Add a title..."
+          />
         </label>
         <label>
           Description
