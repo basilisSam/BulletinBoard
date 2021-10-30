@@ -5,6 +5,7 @@ import "./Home.css";
 const Home = () => {
   const [categories, setCategories] = useState([]);
   const [announcements, setAnnouncements] = useState([]);
+  const [allAnnouncements, setAllAnnouncements] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState({});
   const [isAdding, setIsAdding] = useState(false);
   const [title, setTitle] = useState("");
@@ -42,6 +43,7 @@ const Home = () => {
       })
       .then((announcements) => {
         setAnnouncements(announcements);
+        setAllAnnouncements(announcements);
       })
       .catch((e) => {
         console.log("fetching announcements failed :( ");
@@ -67,6 +69,10 @@ const Home = () => {
       });
   };
 
+  const fetchAllAnnouncements =() => {
+    setAnnouncements(allAnnouncements)
+  }
+
   const isFormVisible = (isVisible) => {
     setIsAdding(isVisible);
   };
@@ -80,6 +86,7 @@ const Home = () => {
     }).then((r) => r.json())
         .then((newAnnouncement) => {
           setAnnouncements([...announcements,newAnnouncement])
+          setAllAnnouncements([...allAnnouncements,newAnnouncement])
           setIsAdding(false);
         });
   };
@@ -96,12 +103,15 @@ const Home = () => {
     setCategory(e.target.value)
   };
 
+
+
   return (
     <div className="homeWrapper">
       <NavBar
         isFormVisible={isFormVisible}
         fetchingCategory={fetchingCategory}
         categories={categories}
+        fetchAllAnnouncements={fetchAllAnnouncements}
       />
       <Board
         announcements={announcements}

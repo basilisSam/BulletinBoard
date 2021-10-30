@@ -1,8 +1,9 @@
 import "./NavBar.css";
 
-const NavBar = ({ isFormVisible, categories, fetchingCategory }) => {
+const NavBar = ({ fetchAllAnnouncements,isFormVisible, categories, fetchingCategory }) => {
   return (
     <div className="navBarWrapper">
+    <button onClick={() => fetchAllAnnouncements()}>All categories</button>
       {categories.map((category) => (
         <button
           key={category.id}
@@ -14,6 +15,7 @@ const NavBar = ({ isFormVisible, categories, fetchingCategory }) => {
           {category.title}
         </button>
       ))}
+
     </div>
   );
 };
