@@ -12,17 +12,19 @@ const Board = ({
   captureText,
   captureCategory,
   categories,
+  deleteAnnouncement,
 }) => {
   return (
-    <div className="boardWrapper">
+    <div className='boardWrapper'>
       {!isAdding ? (
         <>
           <Column
+            deleteAnnouncement={deleteAnnouncement}
             announcements={announcements}
             selectedCategory={selectedCategory}
           />
 
-          <div className="createCardBtn">
+          <div className='createCardBtn'>
             <button onClick={() => isFormVisible(true)}>
               Add Announcement
             </button>

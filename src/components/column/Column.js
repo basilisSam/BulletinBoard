@@ -1,6 +1,6 @@
 import Announcement from "../announcement/Announcement";
 import "./Column.css";
-const Column = ({ announcements, selectedCategory }) => {
+const Column = ({ deleteAnnouncement,announcements, selectedCategory }) => {
   return (
     <div className="column">
       <span className="columnTitle"> {selectedCategory?.title}</span>
@@ -9,6 +9,7 @@ const Column = ({ announcements, selectedCategory }) => {
           key={announcement.id}
           title={announcement.title}
           text={announcement.text}
+          deleteAnnouncement={deleteAnnouncement}
         />
       ))}
     </div>

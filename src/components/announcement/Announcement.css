@@ -5,3 +5,11 @@
 .title {
   @apply font-bold text-red-400;
 }
+
+.createDeleteBtn {
+  @apply flex justify-end;
+}
+
+.createDeleteBtn > button {
+  @apply bg-green-500 text-white text-center w-16 h-10 rounded-lg px-1 py-1;
+}

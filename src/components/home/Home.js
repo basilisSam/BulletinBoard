@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Board from "../board/Board";
 import NavBar from "../navBar.js/NavBar";
 import "./Home.css";
+
 const Home = () => {
   const [categories, setCategories] = useState([]);
   const [announcements, setAnnouncements] = useState([]);
@@ -103,6 +104,9 @@ const Home = () => {
     setCategory(e.target.value)
   };
 
+  const deleteAnnouncement = () => {
+    console.log("Delete announcement")
+  };
 
 
   return (
@@ -123,6 +127,7 @@ const Home = () => {
         captureText={captureText}
         captureCategory={captureCategory}
         categories={categories}
+        deleteAnnouncement={deleteAnnouncement}
       />
     </div>
   );

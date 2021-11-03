@@ -1,10 +1,13 @@
 import "./Announcement.css";
 
-const Announcement = ({ title, text }) => {
+const Announcement = ({ deleteAnnouncement, title, text }) => {
   return (
-    <div className="announcementWrapper">
-      <span className="title">{title}</span>
+    <div className='announcementWrapper'>
+      <span className='title'>{title}</span>
       <div>{text}</div>
+      <div className='createDeleteBtn'>
+        <button onClick={() => deleteAnnouncement()}>delete</button>
+      </div>
     </div>
   );
 };
