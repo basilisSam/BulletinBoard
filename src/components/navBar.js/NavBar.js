@@ -3,7 +3,10 @@ import "./NavBar.css";
 const NavBar = ({ fetchAllAnnouncements,isFormVisible, categories, fetchingCategory }) => {
   return (
     <div className="navBarWrapper">
-    <button onClick={() => fetchAllAnnouncements()}>All categories</button>
+    <button onClick={() => {
+            fetchAllAnnouncements();
+            isFormVisible(false);
+          }}>All categories</button>
       {categories.map((category) => (
         <button
           key={category.id}

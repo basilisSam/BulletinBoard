@@ -7,7 +7,9 @@ const Home = () => {
   const [categories, setCategories] = useState([]);
   const [announcements, setAnnouncements] = useState([]);
   const [allAnnouncements, setAllAnnouncements] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState({});
+  const [selectedCategory, setSelectedCategory] = useState({
+    title: "All Categories",
+  });
   const [isAdding, setIsAdding] = useState(false);
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
@@ -27,7 +29,7 @@ const Home = () => {
       })
       .then((categories) => {
         setCategories(categories);
-        setCategory(categories[0]?.id)
+        setCategory(categories[0]?.id);
       })
       .catch((e) => {
         console.log("fetching categories failed :( ");
@@ -63,6 +65,7 @@ const Home = () => {
       .then((announcements) => {
         setAnnouncements(announcements);
         setSelectedCategory(category);
+        console.log(category);
       })
       .catch((e) => {
         console.log("fetching announcements failed :( ");
@@ -70,9 +73,10 @@ const Home = () => {
       });
   };
 
-  const fetchAllAnnouncements =() => {
-    setAnnouncements(allAnnouncements)
-  }
+  const fetchAllAnnouncements = () => {
+    setAnnouncements(allAnnouncements);
+    setSelectedCategory({ title: "All Categories" });
+  };
 
   const isFormVisible = (isVisible) => {
     setIsAdding(isVisible);
@@ -83,13 +87,14 @@ const Home = () => {
     fetch(URL_ANNOUNCEMENTS, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title: title, text: text, categoryId:category }),
-    }).then((r) => r.json())
-        .then((newAnnouncement) => {
-          setAnnouncements([...announcements,newAnnouncement])
-          setAllAnnouncements([...allAnnouncements,newAnnouncement])
-          setIsAdding(false);
-        });
+      body: JSON.stringify({ title: title, text: text, categoryId: category }),
+    })
+      .then((r) => r.json())
+      .then((newAnnouncement) => {
+        setAnnouncements([...announcements, newAnnouncement]);
+        setAllAnnouncements([...allAnnouncements, newAnnouncement]);
+        setIsAdding(false);
+      });
   };
 
   const captureTitle = (e) => {
@@ -101,16 +106,29 @@ const Home = () => {
   };
 
   const captureCategory = (e) => {
-    setCategory(e.target.value)
+    setCategory(e.target.value);
   };
 
-  const deleteAnnouncement = () => {
-    console.log("Delete announcement")
+  const deleteAnnouncement = (id) => {
+    fetch(`${URL_ANNOUNCEMENTS}/${id}`, { method: "DELETE" }).then((result) => {
+      console.log(result);
+      setAnnouncements(
+        announcements.filter((announcements) => {
+          return announcements.id !== id;
+        })
+      );
+      setAllAnnouncements(
+        allAnnouncements.filter((allAnnouncements) => {
+          return allAnnouncements.id !== id;
+        })
+      );
+    });
+    console.log("Delete announcement");
+    console.log(id);
   };
-
 
   return (
-    <div className="homeWrapper">
+    <div className='homeWrapper'>
       <NavBar
         isFormVisible={isFormVisible}
         fetchingCategory={fetchingCategory}

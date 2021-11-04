@@ -21,17 +21,10 @@
       "categoryId": 0
     },
     {
-      "id": 1,
-      "title": "Welcome to our university2",
-      "text": "this is sample text yolo2",
-      "categoryId": 1
-    },
-    {
-      "id": 2,
-      "title": "Welcome to our university3",
-      "text": "this is sample text yolo3",
-      "categoryId": 2
+      "title": "test",
+      "text": "awe",
+      "categoryId": "2",
+      "id": 1
     }
-    
   ]
 }
