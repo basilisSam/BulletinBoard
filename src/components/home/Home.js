@@ -11,9 +11,8 @@ const Home = () => {
     title: "All Categories",
   });
   const [isAdding, setIsAdding] = useState(false);
-  const [title, setTitle] = useState("");
-  const [text, setText] = useState("");
-  const [category, setCategory] = useState(null);
+
+  const [announcement, setAnnouncement] = useState({});
 
   const URL_CATEGORIES = "http://localhost:8000/Categories";
   const URL_ANNOUNCEMENTS = "http://localhost:8000/Announcements";
@@ -29,7 +28,7 @@ const Home = () => {
       })
       .then((categories) => {
         setCategories(categories);
-        setCategory(categories[0]?.id);
+        setAnnouncement({ ...announcement, category: categories[0]?.id });
       })
       .catch((e) => {
         console.log("fetching categories failed :( ");
@@ -52,7 +51,7 @@ const Home = () => {
         console.log("fetching announcements failed :( ");
         console.log(e);
       });
-  }, []);
+  }, [announcement]);
 
   const fetchingCategory = (category) => {
     fetch(`${URL_ANNOUNCEMENTS}?categoryId=${category.id}`)
@@ -87,26 +86,35 @@ const Home = () => {
     fetch(URL_ANNOUNCEMENTS, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title: title, text: text, categoryId: category }),
+      body: JSON.stringify({
+        title: announcement.title,
+        text: announcement.text,
+        categoryId: announcement.category,
+      }),
     })
       .then((r) => r.json())
       .then((newAnnouncement) => {
         setAnnouncements([...announcements, newAnnouncement]);
         setAllAnnouncements([...allAnnouncements, newAnnouncement]);
         setIsAdding(false);
+        clearForm();
       });
   };
 
+  const clearForm = () => {
+    setAnnouncement({});
+  };
+
   const captureTitle = (e) => {
-    setTitle(e.target.value);
+    setAnnouncement({ ...announcement, title: e.target.value });
   };
 
   const captureText = (e) => {
-    setText(e.target.value);
+    setAnnouncement({ ...announcement, text: e.target.value });
   };
 
   const captureCategory = (e) => {
-    setCategory(e.target.value);
+    setAnnouncement({ ...announcement, category: e.target.value });
   };
 
   const deleteAnnouncement = (id) => {
@@ -117,11 +125,7 @@ const Home = () => {
           return announcements.id !== id;
         })
       );
-      setAllAnnouncements(
-        allAnnouncements.filter((allAnnouncements) => {
-          return allAnnouncements.id !== id;
-        })
-      );
+      setAllAnnouncements(announcements);
     });
     console.log("Delete announcement");
     console.log(id);

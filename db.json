@@ -15,15 +15,9 @@
   ],
   "Announcements": [
     {
-      "id": 0,
-      "title": "Welcome to our university",
-      "text": "this is sample text yolo",
-      "categoryId": 0
-    },
-    {
-      "title": "test",
-      "text": "awe",
-      "categoryId": "2",
+      "title": "alex",
+      "text": "test",
+      "categoryId": 0,
       "id": 1
     }
   ]
