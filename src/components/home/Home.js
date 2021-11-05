@@ -28,7 +28,7 @@ const Home = () => {
       })
       .then((categories) => {
         setCategories(categories);
-        setAnnouncement({ ...announcement, category: categories[0]?.id });
+        setAnnouncement({ category: categories[0]?.id });
       })
       .catch((e) => {
         console.log("fetching categories failed :( ");
@@ -51,7 +51,7 @@ const Home = () => {
         console.log("fetching announcements failed :( ");
         console.log(e);
       });
-  }, [announcement]);
+  }, []);
 
   const fetchingCategory = (category) => {
     fetch(`${URL_ANNOUNCEMENTS}?categoryId=${category.id}`)
