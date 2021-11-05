@@ -1,4 +1,4 @@
-const EditAnnouncement = () => {
+const EditAnnouncementForm = () => {
   return (
     <div>
       <form>
@@ -20,4 +20,4 @@ const EditAnnouncement = () => {
   );
 };
 
-export default EditAnnouncement;
+export default EditAnnouncementForm;

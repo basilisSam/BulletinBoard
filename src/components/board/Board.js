@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Column from "../column/Column";
 import CreateAnnouncementForm from "../createAnnouncementForm/CreateAnnouncementForm";
-import EditAnnouncement from "../editAnnouncementForm/EditAnnouncement";
+import EditAnnouncementForm from "../editAnnouncementForm/EditAnnouncementForm";
 import "./Board.css";
 
 const Board = ({
@@ -33,7 +33,7 @@ const Board = ({
               Add Announcement
             </button>
           </div>
-          {isEditing && <EditAnnouncement />}
+          {isEditing && <EditAnnouncementForm />}
         </>
       ) : (
         <>
