@@ -7,9 +7,13 @@
 }
 
 .createDeleteBtn {
-  @apply flex justify-end;
+  @apply flex justify-end  gap-2;
 }
 
-.createDeleteBtn > button {
-  @apply bg-green-500 text-white text-center w-16 h-10 rounded-lg px-1 py-1;
+.createDeleteBtn > .deleteButton {
+  @apply bg-red-600 text-white text-center w-16 h-10 rounded-lg px-1 py-1;
+}
+
+.createDeleteBtn > .editButton {
+  @apply bg-gray-600 text-white text-center w-16 h-10 rounded-lg px-1 py-1;
 }

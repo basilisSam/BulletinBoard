@@ -1,5 +1,7 @@
+import { useState } from "react";
 import Column from "../column/Column";
 import CreateAnnouncementForm from "../createAnnouncementForm/CreateAnnouncementForm";
+import EditAnnouncement from "../editAnnouncementForm/EditAnnouncement";
 import "./Board.css";
 
 const Board = ({
@@ -14,6 +16,8 @@ const Board = ({
   categories,
   deleteAnnouncement,
 }) => {
+  const [isEditing, setIsEditing] = useState(true);
+
   return (
     <div className='boardWrapper'>
       {!isAdding ? (
@@ -29,16 +33,19 @@ const Board = ({
               Add Announcement
             </button>
           </div>
+          {isEditing && <EditAnnouncement />}
         </>
       ) : (
-        <CreateAnnouncementForm
-          isFormVisible={isFormVisible}
-          createNewAnnouncement={createNewAnnouncement}
-          captureTitle={captureTitle}
-          captureText={captureText}
-          captureCategory={captureCategory}
-          categories={categories}
-        />
+        <>
+          <CreateAnnouncementForm
+            isFormVisible={isFormVisible}
+            createNewAnnouncement={createNewAnnouncement}
+            captureTitle={captureTitle}
+            captureText={captureText}
+            captureCategory={captureCategory}
+            categories={categories}
+          />
+        </>
       )}
     </div>
   );

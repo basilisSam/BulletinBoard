@@ -3,16 +3,19 @@ import Board from "../board/Board";
 import NavBar from "../navBar.js/NavBar";
 import "./Home.css";
 
+
 const Home = () => {
   const [categories, setCategories] = useState([]);
+  const [announcement, setAnnouncement] = useState({});
   const [announcements, setAnnouncements] = useState([]);
   const [allAnnouncements, setAllAnnouncements] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState({
     title: "All Categories",
   });
-  const [isAdding, setIsAdding] = useState(false);
 
-  const [announcement, setAnnouncement] = useState({});
+  const [isAdding, setIsAdding] = useState(false);
+  
+
 
   const URL_CATEGORIES = "http://localhost:8000/Categories";
   const URL_ANNOUNCEMENTS = "http://localhost:8000/Announcements";
@@ -64,7 +67,6 @@ const Home = () => {
       .then((announcements) => {
         setAnnouncements(announcements);
         setSelectedCategory(category);
-        console.log(category);
       })
       .catch((e) => {
         console.log("fetching announcements failed :( ");
@@ -119,7 +121,6 @@ const Home = () => {
 
   const deleteAnnouncement = (id) => {
     fetch(`${URL_ANNOUNCEMENTS}/${id}`, { method: "DELETE" }).then((result) => {
-      console.log(result);
       setAnnouncements(
         announcements.filter((announcements) => {
           return announcements.id !== id;
@@ -127,8 +128,6 @@ const Home = () => {
       );
       setAllAnnouncements(announcements);
     });
-    console.log("Delete announcement");
-    console.log(id);
   };
 
   return (
