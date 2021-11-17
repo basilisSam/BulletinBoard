@@ -1,6 +1,6 @@
 import "./Announcement.css";
 
-const Announcement = ({ deleteAnnouncement, announcement }) => {
+const Announcement = ({ deleteAnnouncement, announcement,handleEditClick ,}) => {
   return (
     <div className='announcementWrapper'>
       <span className='title'>{announcement.title}</span>
@@ -14,7 +14,7 @@ const Announcement = ({ deleteAnnouncement, announcement }) => {
         </button>
         <button
           className='editButton'
-          onClick={() => deleteAnnouncement(announcement.id)}
+          onClick={() => handleEditClick(announcement.id)}
         >
           Edit
         </button>

@@ -1,6 +1,6 @@
 import Announcement from "../announcement/Announcement";
 import "./Column.css";
-const Column = ({ deleteAnnouncement, announcements, selectedCategory }) => {
+const Column = ({ deleteAnnouncement, announcements, selectedCategory,handleEditClick }) => {
   return (
     <div className='column'>
       <span className='columnTitle'> {selectedCategory?.title}</span>
@@ -9,6 +9,8 @@ const Column = ({ deleteAnnouncement, announcements, selectedCategory }) => {
           key={announcement.id}
           announcement={announcement}
           deleteAnnouncement={deleteAnnouncement}
+          handleEditClick={handleEditClick}
+         
         />
       ))}
     </div>

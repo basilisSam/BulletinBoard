@@ -1,20 +1,41 @@
-const EditAnnouncementForm = () => {
+const EditAnnouncementForm = ({
+  setIsEditing,
+  handleEditTitleChange,
+  handleEditTextChange,
+  announcementToBeEdited,
+  handleEditFormSubmit,
+}) => {
   return (
     <div>
-      <form>
+      <form onSubmit={(e) => handleEditFormSubmit(e)}>
         <label>
           Title:
-          <input type='text' placeholder='Add a title...' required />
+          <input
+            onChange={(e) => handleEditTitleChange(e)}
+            type='text'
+            placeholder='Update a title...'
+            value={announcementToBeEdited.title}
+            required
+          />
         </label>
         <label>
           Description
-          <textarea placeholder='Write an Announcement' required />
+          <textarea
+            onChange={(e) => handleEditTextChange(e)}
+            placeholder='Write an Announcement'
+            value={announcementToBeEdited.text}
+            required
+          />
         </label>
         <select>
           <option>test</option>
         </select>
-        <input type='submit' value='Create Announcement' />
-        <button>Cancel</button>
+        <input
+          onClick={(e) => handleEditFormSubmit(e)}
+          type='submit'
+          value='Update Announcement'
+        />
+        <button onClick={() => setIsEditing(false)}>Cancel</button>
       </form>
     </div>
   );

@@ -3,7 +3,6 @@ import Board from "../board/Board";
 import NavBar from "../navBar.js/NavBar";
 import "./Home.css";
 
-
 const Home = () => {
   const [categories, setCategories] = useState([]);
   const [announcement, setAnnouncement] = useState({});
@@ -14,8 +13,8 @@ const Home = () => {
   });
 
   const [isAdding, setIsAdding] = useState(false);
-  
-
+  const [isEditing, setIsEditing] = useState(false);
+  const [announcementToBeEdited, setAnnouncementToBeEdited] = useState({});
 
   const URL_CATEGORIES = "https://buletingboard-backend.herokuapp.com/Categories";
   const URL_ANNOUNCEMENTS = "https://buletingboard-backend.herokuapp.com/Announcements";
@@ -130,6 +129,46 @@ const Home = () => {
     });
   };
 
+  const handleEditClick = (id) => {
+    console.log(id);
+    setIsEditing(true);
+    setAnnouncementToBeEdited(
+      announcements.find((announcement) => {
+        return announcement.id === id;
+      })
+    );
+    console.log(announcementToBeEdited);
+  };
+
+  const handleEditTitleChange = (e) => {
+    setAnnouncementToBeEdited({
+      ...announcementToBeEdited,
+      title: e.target.value,
+    });
+  };
+
+  const handleEditTextChange = (e) => {
+    setAnnouncementToBeEdited({
+      ...announcementToBeEdited,
+      text: e.target.value,
+    });
+  };
+
+  const handleEditFormSubmit = (e) => {
+    e.preventDefault();
+
+    updateAnnouncement(announcementToBeEdited.id, announcementToBeEdited);
+  };
+
+  const updateAnnouncement = (id, updatedAnnouncement) => {
+    const updatedItem = announcements.map((announcement) => {
+      return announcement.id === id ? updatedAnnouncement : announcement;
+    });
+    setIsEditing(false);
+    setAnnouncements(updatedItem);
+    setAllAnnouncements(updatedItem);
+  };
+
   return (
     <div className='homeWrapper'>
       <NavBar
@@ -149,6 +188,13 @@ const Home = () => {
         captureCategory={captureCategory}
         categories={categories}
         deleteAnnouncement={deleteAnnouncement}
+        isEditing={isEditing}
+        setIsEditing={setIsEditing}
+        handleEditClick={handleEditClick}
+        handleEditTitleChange={handleEditTitleChange}
+        handleEditTextChange={handleEditTextChange}
+        announcementToBeEdited={announcementToBeEdited}
+        handleEditFormSubmit={handleEditFormSubmit}
       />
     </div>
   );
