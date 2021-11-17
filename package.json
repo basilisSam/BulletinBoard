@@ -17,7 +17,9 @@
     "build": "craco build",
     "eject": "react-scripts eject",
     "jserver": "json-server --watch db.json --port 8000",
-    "dev": "concurrently --kill-others \"yarn start\" \"yarn jserver\""
+    "dev": "concurrently --kill-others \"yarn start\" \"yarn jserver\"",
+    "prod": "concurrently --kill-others \"yarn build\" \"yarn jserver\""
+    
   },
   "eslintConfig": {
     "extends": [
