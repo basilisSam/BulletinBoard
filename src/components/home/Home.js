@@ -17,8 +17,8 @@ const Home = () => {
   
 
 
-  const URL_CATEGORIES = "http://localhost:8000/Categories";
-  const URL_ANNOUNCEMENTS = "http://localhost:8000/Announcements";
+  const URL_CATEGORIES = "https://my-json-server.typicode.com/basilissam/BuletinBoard_Backend/Categories";
+  const URL_ANNOUNCEMENTS = "https://my-json-server.typicode.com/basilissam/BuletinBoard_Backend/Announcements";
 
   useEffect(() => {
     fetch(URL_CATEGORIES)
