@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# BulletinBoard [![Netlify Status](https://api.netlify.com/api/v1/badges/dc3241dc-6f77-4d51-b8b6-928516ef2e56/deploy-status)](https://app.netlify.com/sites/zealous-mcclintock-9eb20d/deploys) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/c6bffae0f3144168b8e9b7101edb59dd)](https://www.codacy.com/gh/basilisSam/E-Commerce/dashboard?utm_source=github.com&utm_medium=referral&utm_content=basilisSam/E-Commerce&utm_campaign=Badge_Grade) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/apavlidi/IT_API/wiki/How-to-contribute)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The front end of the BulletinBoard application. A functional announcement app that you can create/delete/edit announcements to specific category.
 
-## Available Scripts
+## Teck Stack
 
-In the project directory, you can run:
+The project is build with [React](https://reactjs.org/). It uses [Tailwind CSS](https://tailwindcss.com/) for styling and [JSON Server](https://www.npmjs.com/package/json-server) for the backend.
 
-### `yarn start`
+For continuous integration and continuous deployment it uses [Netlify CI/CD](https://www.netlify.com/) and for the deployment [Netlify](https://www.netlify.com/).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Run it locally
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Clone the project on your local machine. <br/>
+   `$ git clone https://github.com/basilisSam/BulletinBoard.git`
 
-### `yarn test`
+2. Navigate to the project folder and install the dependencies with the following command. <br/>
+   `$ yarn install`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. Run the application locally (the application can be accessed from [localhost:3000](http://localhost:3000/)) <br/>
+   `$ yarn start`
 
-### `yarn build`
+### Available scripts
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Run app locally
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+You can run the application locally by using `yarn dev`. This command will spin up the webpack-dev-server and the JSON server.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Build
 
-### `yarn eject`
+You can build the application in production mode with `yarn build`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+> **Note:** You can use `npm` instead of `yarn`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Documentation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+BulletinBoard documentation is available [here](https://github.com/basilisSam/BulletinBoard/wiki).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Contributing Guide
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Read our contributing guide to learn about our development process, how to propose bugfixes and improvements, and how to build to BulletinBoard.
