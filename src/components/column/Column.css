@@ -1,7 +1,7 @@
 .column {
-  @apply bg-gray-300 h-3/4;
+  @apply bg-gray-300;
 }
 
 .columnTitle {
-  @apply flex justify-center text-xl font-bold pb-1.5;
+  @apply flex justify-center text-xl font-bold pb-1.5 pt-1.5;
 }
