@@ -1,0 +1,3 @@
+.createAnnouncementForm{
+  @apply w-full max-w-lg flex align-middle;
+}
