@@ -17,13 +17,25 @@ For continuous integration and continuous deployment it uses [Netlify CI/CD](htt
    `$ yarn install`
 
 3. Run the application locally (the application can be accessed from [localhost:3000](http://localhost:3000/)) <br/>
-   `$ yarn start`
+   `$ yarn dev`
 
 ### Available scripts
 
 #### Run app locally
 
-You can run the application locally by using `yarn dev`. This command will spin up the webpack-dev-server and the JSON server.
+You can run the application locally by using `yarn dev`. This command will spin up the webpack-dev-server and the JSON server by running both commands concurrently.
+
+#### Run react app
+
+You can start the react application by using `yarn start` (you will need the json-server running).
+
+#### Run json-server
+
+You can start the json-server by using `yarn jserver`.
+
+#### Run json-server
+
+You can start the json-server by using `yarn jserver`
 
 #### Build
 
