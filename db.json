@@ -16,21 +16,15 @@
   "Announcements": [
     {
       "title": "alex",
-      "text": "test",
-      "categoryId": 0,
+      "text": "testerrtrt",
+      "categoryId": "0",
       "id": 1
     },
     {
-      "title": "adssad",
-      "text": "asdad",
-      "categoryId": "2",
-      "id": 2
-    },
-    {
-      "title": "ser",
-      "text": "sdr",
+      "title": "tester",
+      "text": "tester",
       "categoryId": "1",
-      "id": 3
+      "id": 2
     }
   ]
 }

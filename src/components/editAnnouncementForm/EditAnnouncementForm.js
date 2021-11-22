@@ -4,6 +4,8 @@ const EditAnnouncementForm = ({
   handleEditTextChange,
   announcementToBeEdited,
   handleEditFormSubmit,
+  handleEditCategory,
+  categories,
 }) => {
   return (
     <div>
@@ -27,8 +29,12 @@ const EditAnnouncementForm = ({
             required
           />
         </label>
-        <select>
-          <option>test</option>
+        <select onChange={(e) => handleEditCategory(e)}>
+          {categories.map((category) => (
+            <option defaultValue={announcementToBeEdited.category} key={category.id} value={category.id}>
+              {category.title}
+            </option>
+          ))}
         </select>
         <input
           onClick={(e) => handleEditFormSubmit(e)}

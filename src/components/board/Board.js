@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Column from "../column/Column";
 import CreateAnnouncementForm from "../createAnnouncementForm/CreateAnnouncementForm";
 import EditAnnouncementForm from "../editAnnouncementForm/EditAnnouncementForm";
@@ -15,23 +14,42 @@ const Board = ({
   captureCategory,
   categories,
   deleteAnnouncement,
+  isEditing,
+  setIsEditing,
+  handleEditClick,
+  handleEditTitleChange,
+  handleEditTextChange,
+  announcementToBeEdited,
+  handleEditFormSubmit,
+  handleEditCategory,
 }) => {
-  const [isEditing, setIsEditing] = useState(true);
-
   return (
     <div className='boardWrapper'>
       {!isAdding ? (
         <>
           <div className='createCardBtn'>
-            <button onClick={() => isFormVisible(true)}>Add Announcement</button>
+            <button onClick={() => isFormVisible(true)}>
+              Add Announcement
+            </button>
           </div>
           <Column
             deleteAnnouncement={deleteAnnouncement}
             announcements={announcements}
             selectedCategory={selectedCategory}
+            handleEditClick={handleEditClick}
           />
 
-          {isEditing && <EditAnnouncementForm />}
+          {isEditing && (
+            <EditAnnouncementForm
+              setIsEditing={setIsEditing}
+              handleEditTitleChange={handleEditTitleChange}
+              handleEditTextChange={handleEditTextChange}
+              announcementToBeEdited={announcementToBeEdited}
+              handleEditFormSubmit={handleEditFormSubmit}
+              handleEditCategory={handleEditCategory}
+              categories={categories}
+            />
+          )}
         </>
       ) : (
         <>

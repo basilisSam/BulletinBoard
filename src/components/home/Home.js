@@ -157,10 +157,31 @@ const Home = () => {
     });
   };
 
+  const handleEditCategory = (e) => {
+    setAnnouncementToBeEdited({
+      ...announcementToBeEdited,
+      category: e.target.value,
+    });
+    console.log(announcementToBeEdited.category);
+  };
+
   const handleEditFormSubmit = (e) => {
     e.preventDefault();
-
-    updateAnnouncement(announcementToBeEdited.id, announcementToBeEdited);
+    fetch(`${URL_ANNOUNCEMENTS}/${announcementToBeEdited.id}`, {
+      method: "PUT",
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+      body: JSON.stringify({
+        title: announcementToBeEdited.title,
+        text: announcementToBeEdited.text,
+        categoryId: announcementToBeEdited.category,
+      }),
+    })
+      .then((r) => r.json())
+      .then(() => {
+        updateAnnouncement(announcementToBeEdited.id, announcementToBeEdited);
+        setIsEditing(false);
+        clearForm();
+      });
   };
 
   const updateAnnouncement = (id, updatedAnnouncement) => {
@@ -198,6 +219,7 @@ const Home = () => {
         handleEditTextChange={handleEditTextChange}
         announcementToBeEdited={announcementToBeEdited}
         handleEditFormSubmit={handleEditFormSubmit}
+        handleEditCategory={handleEditCategory}
       />
     </div>
   );
