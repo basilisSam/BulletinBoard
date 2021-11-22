@@ -27,11 +27,6 @@ const Board = ({
     <div className='boardWrapper'>
       {!isAdding ? (
         <>
-          <div className='createCardBtn'>
-            <button onClick={() => isFormVisible(true)}>
-              Add Announcement
-            </button>
-          </div>
           <Column
             deleteAnnouncement={deleteAnnouncement}
             announcements={announcements}
@@ -39,6 +34,12 @@ const Board = ({
             handleEditClick={handleEditClick}
           />
 
+          <div className='createCardBtn'>
+            <button onClick={() => isFormVisible(true)}>
+              Add Announcement
+            </button>
+          </div>
+          
           {isEditing && (
             <EditAnnouncementForm
               setIsEditing={setIsEditing}
