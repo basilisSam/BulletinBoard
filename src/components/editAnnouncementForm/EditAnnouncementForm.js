@@ -1,61 +1,44 @@
-const CreateAnnouncementForm = ({
-  createNewAnnouncement,
-  isFormVisible,
-  captureTitle,
-  captureText,
-  captureCategory,
-  categories,
+const EditAnnouncementForm = ({
+  setIsEditing,
+  handleEditTitleChange,
+  handleEditTextChange,
+  announcementToBeEdited,
+  handleEditFormSubmit,
 }) => {
   return (
-      <form className="createAnnouncementForm" onSubmit={(e) => createNewAnnouncement(e)}>
-        <div className="flex flex-wrap -mx-3 mb-6">
-          <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                   htmlFor="grid-title">
-              Title:
-            </label>
-            <input
-                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                id="grid-title" required type="text" placeholder="Add a title..." onChange={(e) => captureTitle(e)}/>
-              <p className="text-red-500 text-xs italic">Please fill out this field.</p>
-          </div>
-        </div>
-        <div className="flex flex-wrap -mx-3 mb-6">
-        <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                   htmlFor="grid-description">
-              Description:
-            </label>
-            <textarea
-                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                id="grid-description" required type="text" placeholder="Add a description..." onChange={(e) => captureText(e)}/>
-            <p className="text-red-500 text-xs italic">Please fill out this field.</p>
-          </div>
-        </div>
-        <div className="flex flex-wrap -mx-3 mb-2">
-          <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-          <label className="block tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-state">
-            State
-          </label>
-          <div className="relative">
-            <select onChange={(e) => captureCategory(e)} className="block appearance-none w-full bg-gray-200 border  py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">          {categories.map((category) => (
-                <option key={category.id} value={category.id}>
-                  {category.title}
-                </option>
-            ))}
-            </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-              <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-            </div>
-          </div>
-          </div>
-        </div>
-          <div className=" mb-6">
-          <input type='submit' value='Create Announcement' className="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" />
-          <button className="m-4 bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={() => isFormVisible(false)}>Cancel</button>
-        </div>
+    <div>
+      <form onSubmit={(e) => handleEditFormSubmit(e)}>
+        <label>
+          Title:
+          <input
+            onChange={(e) => handleEditTitleChange(e)}
+            type='text'
+            placeholder='Update a title...'
+            value={announcementToBeEdited.title}
+            required
+          />
+        </label>
+        <label>
+          Description
+          <textarea
+            onChange={(e) => handleEditTextChange(e)}
+            placeholder='Write an Announcement'
+            value={announcementToBeEdited.text}
+            required
+          />
+        </label>
+        <select>
+          <option>test</option>
+        </select>
+        <input
+          onClick={(e) => handleEditFormSubmit(e)}
+          type='submit'
+          value='Update Announcement'
+        />
+        <button onClick={() => setIsEditing(false)}>Cancel</button>
       </form>
+    </div>
   );
 };
 
-export default CreateAnnouncementForm;
+export default EditAnnouncementForm;
