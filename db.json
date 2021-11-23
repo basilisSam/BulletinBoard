@@ -15,16 +15,22 @@
   ],
   "Announcements": [
     {
-      "title": "alex",
-      "text": "testerrtrt",
+      "title": "Bill",
+      "text": "Sam",
       "categoryId": "0",
       "id": 1
     },
     {
-      "title": "tester",
-      "text": "tester",
+      "title": "dof",
+      "text": "santam",
       "categoryId": "1",
       "id": 2
+    },
+    {
+      "title": "ilias",
+      "text": "kelesidis",
+      "categoryId": "1",
+      "id": 3
     }
   ]
 }

@@ -1,5 +1,12 @@
+.createAnnouncementFormWrapper {
+  @apply flex flex-col justify-center items-center;
+}
+
+.createAnnouncementTitleWrapper {
+  @apply flex flex-wrap -mx-3 mb-6;
+}
 .createAnnouncementTitle {
-  @apply w-full md:w-1/2 px-3 mb-6 md:mb-0;
+  @apply w-full md:w-11/12 px-3 mb-6 md:mb-0;
 }
 
 .createAnnouncementTitleLabel {
@@ -19,7 +26,7 @@
 }
 
 .createAnnouncementText {
-  @apply w-full md:w-1/2 px-3 mb-6 md:mb-0;
+  @apply w-full md:w-11/12 px-3 mb-6 md:mb-0;
 }
 
 .createAnnouncementTextLabel {
@@ -39,7 +46,7 @@
 }
 
 .createAnnouncementState {
-  @apply w-full md:w-1/2 px-3 mb-6 md:mb-0;
+  @apply w-full md:w-11/12 px-3 mb-6 md:mb-0;
 }
 
 .createAnnouncementStateLabel {

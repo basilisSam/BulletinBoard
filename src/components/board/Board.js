@@ -25,21 +25,18 @@ const Board = ({
 }) => {
   return (
     <div className='boardWrapper'>
-      {!isAdding ? (
+      {isAdding || isEditing ? (
         <>
-          <Column
-            deleteAnnouncement={deleteAnnouncement}
-            announcements={announcements}
-            selectedCategory={selectedCategory}
-            handleEditClick={handleEditClick}
-          />
-
-          <div className='createCardBtn'>
-            <button onClick={() => isFormVisible(true)}>
-              Add Announcement
-            </button>
-          </div>
-          
+          {isAdding && (
+            <CreateAnnouncementForm
+              isFormVisible={isFormVisible}
+              createNewAnnouncement={createNewAnnouncement}
+              captureTitle={captureTitle}
+              captureText={captureText}
+              captureCategory={captureCategory}
+              categories={categories}
+            />
+          )}
           {isEditing && (
             <EditAnnouncementForm
               setIsEditing={setIsEditing}
@@ -54,14 +51,18 @@ const Board = ({
         </>
       ) : (
         <>
-          <CreateAnnouncementForm
-            isFormVisible={isFormVisible}
-            createNewAnnouncement={createNewAnnouncement}
-            captureTitle={captureTitle}
-            captureText={captureText}
-            captureCategory={captureCategory}
-            categories={categories}
+          <Column
+            deleteAnnouncement={deleteAnnouncement}
+            announcements={announcements}
+            selectedCategory={selectedCategory}
+            handleEditClick={handleEditClick}
           />
+
+          <div className='createCardBtn'>
+            <button onClick={() => isFormVisible(true)}>
+              Add Announcement
+            </button>
+          </div>
         </>
       )}
     </div>

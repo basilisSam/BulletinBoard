@@ -16,11 +16,14 @@ const Home = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [announcementToBeEdited, setAnnouncementToBeEdited] = useState({});
 
-  // const URL_CATEGORIES = "https://buletingboard-backend.herokuapp.com/Categories";
-  // const URL_ANNOUNCEMENTS = "https://buletingboard-backend.herokuapp.com/Announcements";
+  const URL_CATEGORIES =
+    "https://buletingboard-backend.herokuapp.com/Categories";
+  const URL_ANNOUNCEMENTS =
+    "https://buletingboard-backend.herokuapp.com/Announcements";
 
-  const URL_CATEGORIES = "http://localhost:8000/Categories";
-  const URL_ANNOUNCEMENTS = "http://localhost:8000/Announcements";
+  //Run locally
+  // const URL_CATEGORIES = "http://localhost:8000/Categories";
+  // const URL_ANNOUNCEMENTS = "http://localhost:8000/Announcements";
 
   useEffect(() => {
     fetch(URL_CATEGORIES)
